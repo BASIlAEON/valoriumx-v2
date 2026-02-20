@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorium X — The Ethical Blockchain</title>
+    <meta name="description" content="A security-first, post-quantum Layer 1 blockchain built for the long term. No hype, just verifiable work.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Valorium X — The Ethical Blockchain">
+    <meta property="og:description" content="Post-quantum security. Solar-powered mining. Community-governed. A Layer 1 blockchain built for the future.">
+    <meta property="og:image" content="og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valorium X — The Ethical Blockchain">
+    <meta name="twitter:image" content="og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-inner">
+        <div class="loader-text" id="loaderText"></div>
+        <div class="loader-sub">Click anywhere to enter</div>
+    </div>
+    <canvas class="loader-gradient" id="loaderGradient"></canvas>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+    <a href="#" class="nav-logo">VALORIUM <span>X</span></a>
+    <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link" data-hover>About</a>
+        <a href="#how" class="nav-link" data-hover>How It Works</a>
+        <a href="#ecosystem" class="nav-link" data-hover>Ecosystem</a>
+        <a href="#miners" class="nav-link" data-hover>Miners</a>
+        <a href="#roadmap" class="nav-link" data-hover>Roadmap</a>
+        <a href="#community" class="nav-link" data-hover>Community</a>
+        <a href="#developers" class="nav-link" data-hover>Developers</a>
+    </div>
+    <a href="#community" class="nav-cta magnetic" data-hover>Get Started</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="hero-eyebrow" data-anim="fade-up" data-delay="0">Introducing</p>
+            <h1 class="hero-title">
+                <span class="hero-line" data-anim="fade-up" data-delay="1">The Ethical</span>
+                <span class="hero-line hero-line--accent" data-anim="fade-up" data-delay="2">Blockchain</span>
+            </h1>
+            <p class="hero-sub" data-anim="fade-up" data-delay="3">Post-quantum security. Solar-powered mining.<br>Community-governed.</p>
+            <div class="hero-actions" data-anim="fade-up" data-delay="4">
+                <a href="#about" class="btn-primary magnetic" data-hover>Discover</a>
+                <a href="#developers" class="btn-ghost magnetic" data-hover>Read the Docs</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <canvas id="heroOrb" class="hero-orb"></canvas>
+            <img src="valorium-logo.webp" alt="Valorium X" class="hero-logo" draggable="false">
+        </div>
+    </div>
+    <div class="scroll-indicator" data-anim="fade-up" data-delay="5">
+        <span class="scroll-text">scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+</header>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="about">
+    <div class="manifesto-inner">
+        <p class="manifesto-text" id="manifestoText">Every major blockchain today has the same fatal flaws. Valorium X was designed from scratch to fix all three at once. That has never been done before.</p>
+    </div>
+</section>
+
+<!-- THREE PROBLEMS — HORIZONTAL SCROLL -->
+<section class="problems" id="problems">
+    <div class="problems-pin">
+        <div class="problems-header">
+            <span class="section-tag">The Big Picture</span>
+            <h2 class="section-title">Three Problems<br>Nobody Has Solved</h2>
+        </div>
+        <div class="problems-track" id="problemsTrack">
+            <!-- Card 1: Quantum -->
+            <article class="problem-card">
+                <div class="problem-img">
+                    <img src="quantum-reactor.webp" alt="Quantum Security" draggable="false">
+                    <div class="problem-badge">01</div>
+                </div>
+                <div class="problem-body">
+                    <span class="problem-tag">Post-Quantum Security</span>
+                    <h3 class="problem-title">Quantum Computers<br>Will Break Bitcoin</h3>
+                    <p class="problem-desc">Quantum computers crack RSA & ECC — the cryptography protecting every blockchain today. Timeline: 5-10 years. Valorium X uses lattice-based cryptography, immune from day one.</p>
+                    <div class="problem-stats">
+                        <div class="stat"><span class="stat-val">5-10</span><span class="stat-label">years until quantum threat</span></div>
+                        <div class="stat"><span class="stat-val">0</span><span class="stat-label">migration needed</span></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 2: Energy -->
+            <article class="problem-card">
+                <div class="problem-img">
+                    <img src="energy-wind.webp" alt="Energy Efficiency" draggable="false">
+                    <div class="problem-badge">02</div>
+                </div>
+                <div class="problem-body">
+                    <span class="problem-tag">Energy Efficiency</span>
+                    <h3 class="problem-title">Mining Should Not<br>Cost a Fortune</h3>
+                    <p class="problem-desc">Bitcoin mining: 1,500W per machine. VRX mining: 25W — less than a light bulb. One $100 solar panel powers it 24/7. Zero electricity cost, pure accumulation.</p>
+                    <div class="problem-stats">
+                        <div class="stat"><span class="stat-val">25W</span><span class="stat-label">per miner</span></div>
+                        <div class="stat"><span class="stat-val">60x</span><span class="stat-label">less than Bitcoin</span></div>
+                    </div>
+                </div>
+            </article>
+            <!-- Card 3: Governance -->
+            <article class="problem-card">
+                <div class="problem-img">
+                    <img src="governance-suits.webp" alt="Fair Governance" draggable="false">
+                    <div class="problem-badge">03</div>
+                </div>
+                <div class="problem-body">
+                    <span class="problem-tag">Fair Governance</span>
+                    <h3 class="problem-title">No More Billionaire<br>Takeovers</h3>
+                    <p class="problem-desc">Bitcoin: rich buy more hash power. Ethereum: rich stake more, control more. Valorium X: 1 miner = 1 vote, always. A registered Canadian company with real accountability.</p>
+                    <div class="problem-stats">
+                        <div class="stat"><span class="stat-val">1:1</span><span class="stat-label">person to vote ratio</span></div>
+                        <div class="stat"><span class="stat-val">CA</span><span class="stat-label">registered company</span></div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="problems-progress"><div class="problems-bar" id="problemsBar"></div></div>
+    </div>
+</section>
+
+<!-- DNA ARCHITECTURE -->
+<section class="dna-section" id="how">
+    <div class="container">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">Built Like DNA Itself</h2>
+        <p class="section-sub">Your DNA uses two intertwined strands that constantly check each other for errors — that is how life stays alive. Valorium X works the same way.</p>
+
+        <div class="dna-grid">
+            <div class="dna-step" data-anim="fade-right" data-delay="0">
+                <span class="dna-num">01</span>
+                <h3>Your Money Chain</h3>
+                <p>Every transaction gets recorded in an unbreakable sequence — like a receipt book where every page is glued to the next.</p>
+            </div>
+            <div class="dna-visual">
+                <svg class="dna-helix" viewBox="0 0 120 600" id="dnaHelix">
+                    <defs>
+                        <linearGradient id="helixGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#a78bfa"/>
+                            <stop offset="100%" stop-color="#34d399"/>
+                        </linearGradient>
+                        <linearGradient id="helixGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#34d399"/>
+                            <stop offset="100%" stop-color="#a78bfa"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="dna-step dna-step--right" data-anim="fade-left" data-delay="1">
+                <span class="dna-num">02</span>
+                <h3>The Security Guard</h3>
+                <p>A second independent chain watches the first one. A hacker would need to break both simultaneously — practically impossible.</p>
+            </div>
+            <div class="dna-step" data-anim="fade-right" data-delay="2">
+                <span class="dna-num">03</span>
+                <h3>Locked Like DNA</h3>
+                <p>The two chains are physically interlocked. You cannot change one without snapping the other. No other blockchain has this.</p>
+            </div>
+            <div class="dna-spacer"></div>
+            <div class="dna-step dna-step--right" data-anim="fade-left" data-delay="3">
+                <span class="dna-num">04</span>
+                <h3>Real Work Mining</h3>
+                <p>Valorium X miners do useful computation that strengthens the network. You accumulate tokens AND contribute something real.</p>
+            </div>
+        </div>
+        <blockquote class="dna-quote" data-anim="fade-up">"Nature perfected this design over billions of years. We just applied it to money."</blockquote>
+    </div>
+</section>
+
+<!-- QUANTUM-PROOF -->
+<section class="quantum" id="quantum">
+    <div class="container">
+        <div class="quantum-grid">
+            <div class="quantum-visual" data-anim="fade-right">
+                <div class="lattice" id="lattice"></div>
+            </div>
+            <div class="quantum-content" data-anim="fade-left">
+                <span class="section-tag">Future-Proof Security</span>
+                <h2 class="section-title">Quantum-Proof<br>From Day One</h2>
+                <p class="section-sub">Most blockchains will break when quantum computers arrive. ValoriumX was designed from scratch with post-quantum algorithms — the same ones governments use to protect classified data.</p>
+                <ul class="quantum-list">
+                    <li>
+                        <div class="q-icon">&#10003;</div>
+                        <div><strong>CRYSTALS-Dilithium Signatures</strong><br><span>Mathematically immune to quantum attacks</span></div>
+                    </li>
+                    <li>
+                        <div class="q-icon">&#10003;</div>
+                        <div><strong>No Migration Needed</strong><br><span>Built in from genesis block — not bolted on later</span></div>
+                    </li>
+                    <li>
+                        <div class="q-icon">&#10003;</div>
+                        <div><strong>Your Money Stays Safe</strong><br><span>Even when quantum computers become mainstream</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST & TRANSPARENCY -->
+<section class="trust" id="trust">
+    <div class="container">
+        <span class="section-tag">Trust & Transparency</span>
+        <h2 class="section-title">Real Company. Real People.</h2>
+        <p class="section-sub">ValoriumX isn't anonymous founders hiding behind a Discord handle. It's a registered Canadian company with named leadership, public code, and zero tokens sold to insiders.</p>
+        <div class="trust-grid">
+            <div class="trust-card" data-anim="fade-up" data-delay="0" data-hover>
+                <div class="trust-icon">&#127464;&#127462;</div>
+                <h3>Registered in Canada</h3>
+                <p>ValoriumX Inc. is a legally incorporated company — not an offshore shell or anonymous DAO.</p>
+            </div>
+            <div class="trust-card" data-anim="fade-up" data-delay="1" data-hover>
+                <div class="trust-icon">&lt;/&gt;</div>
+                <h3>100% Open Source</h3>
+                <p>Every line of code is public on GitHub. No hidden backdoors, no secret tokenomics.</p>
+            </div>
+            <div class="trust-card" data-anim="fade-up" data-delay="2" data-hover>
+                <div class="trust-icon">&#9675;</div>
+                <h3>No Token Sale</h3>
+                <p>Zero pre-mine. Zero VC allocation. Every VRX token is earned through mining — not bought.</p>
+            </div>
+            <div class="trust-card" data-anim="fade-up" data-delay="3" data-hover>
+                <div class="trust-icon">&#9878;</div>
+                <h3>1 Person = 1 Vote</h3>
+                <p>No whale can buy control. Every participant has an equal voice in the network's future.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JOURNEY / HOW IT WORKS -->
+<section class="journey" id="journey">
+    <div class="container">
+        <span class="section-tag">The Basics</span>
+        <h2 class="section-title">We Made Mining<br>Accessible to Everyone</h2>
+        <div class="journey-steps">
+            <div class="journey-line" id="journeyLine"></div>
+            <div class="journey-step" data-anim="fade-up" data-delay="0">
+                <div class="journey-marker">1</div>
+                <div class="journey-body">
+                    <h3>Zero Setup. Instant Mining.</h3>
+                    <p>One plug, that's it. No jargon, no PhD required.</p>
+                    <ul><li>Plug into any wall outlet</li><li>Connect to your WiFi</li><li>Zero technical setup</li></ul>
+                </div>
+            </div>
+            <div class="journey-step" data-anim="fade-up" data-delay="1">
+                <div class="journey-marker">2</div>
+                <div class="journey-body">
+                    <h3>Two Chains. Unbreakable.</h3>
+                    <p>Dual-Helix security — like DNA strands cross-checking for errors.</p>
+                    <ul><li>Two independent chains watch each other 24/7</li><li>Both must be broken simultaneously to attack</li><li>Practically impossible to compromise</li></ul>
+                </div>
+            </div>
+            <div class="journey-step" data-anim="fade-up" data-delay="2">
+                <div class="journey-marker">3</div>
+                <div class="journey-body">
+                    <h3>Useful Work, Not Puzzle-Solving</h3>
+                    <p>Unlike Bitcoin's wasted energy, your miner does real optical computation.</p>
+                    <ul><li>Processes real data that matters</li><li>25W power draw — solar compatible</li><li>Strengthens the network with every block</li></ul>
+                </div>
+            </div>
+            <div class="journey-step" data-anim="fade-up" data-delay="3">
+                <div class="journey-marker">4</div>
+                <div class="journey-body">
+                    <h3>Accumulate While You Sleep</h3>
+                    <p>Set it and forget it.</p>
+                    <ul><li>No staking complexity</li><li>No gas wars</li><li>No middlemen</li><li>Community-governed — you vote on the future</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem" id="ecosystem">
+    <div class="container">
+        <span class="section-tag">Ecosystem</span>
+        <h2 class="section-title">Not Just a Coin.<br>An Entire World.</h2>
+        <p class="section-sub">Most crypto projects give you a token and say 'good luck.' Valorium X is building a complete ecosystem — everything you need, all under one roof.</p>
+        <div class="eco-grid">
+            <div class="eco-card eco-card--large" data-anim="fade-up" data-delay="0" data-hover>
+                <span class="eco-icon">&#128179;</span>
+                <h3>Wallet</h3>
+                <p>Your money, your control. A quantum-proof wallet as easy to use as a banking app but impossible to hack — even by future supercomputers.</p>
+            </div>
+            <div class="eco-card" data-anim="fade-up" data-delay="1" data-hover>
+                <span class="eco-icon">&#128722;</span>
+                <h3>Marketplace</h3>
+                <p>Buy, sell, and trade directly. No middleman. The savings go back to you.</p>
+            </div>
+            <div class="eco-card" data-anim="fade-up" data-delay="2" data-hover>
+                <span class="eco-icon">&#129504;</span>
+                <h3>Neural Nodes</h3>
+                <p>AI-powered network nodes that make the blockchain smarter over time.</p>
+            </div>
+            <div class="eco-card" data-anim="fade-up" data-delay="3" data-hover>
+                <span class="eco-icon">&#9878;</span>
+                <h3>Validators</h3>
+                <p>Help verify transactions and accumulate tokens. If you have a computer, you can participate.</p>
+            </div>
+            <div class="eco-card" data-anim="fade-up" data-delay="4" data-hover>
+                <span class="eco-icon">&#9889;</span>
+                <h3>Miners</h3>
+                <p>Real physical devices. Plug them in, they start accumulating. 25 watts — your bill barely moves.</p>
+            </div>
+            <div class="eco-card" data-anim="fade-up" data-delay="5" data-hover>
+                <span class="eco-icon">&#127891;</span>
+                <h3>Academy</h3>
+                <p>Never touched crypto? The Academy teaches everything from zero. Built for real humans.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MINERS / HARDWARE -->
+<section class="miners" id="miners">
+    <div class="container">
+        <span class="section-tag">Hardware</span>
+        <h2 class="section-title">Your Personal Mining Rig</h2>
+        <p class="section-sub">Remember when Bitcoin was new and you could mine it on your laptop? That window closed years ago. With Valorium X, that window is open right now.</p>
+        <div class="miners-grid">
+            <div class="miner-card" data-anim="fade-up" data-delay="0" data-hover>
+                <div class="miner-img-wrap">
+                    <img src="miner-vrx.webp" alt="VRX Miner Lite" draggable="false">
+                </div>
+                <div class="miner-badge">Residential</div>
+                <h3>VRX Miner Lite</h3>
+                <p class="miner-tagline">Less power than a light bulb</p>
+                <div class="miner-specs">
+                    <div><span>Power</span><strong>25W</strong></div>
+                    <div><span>Noise</span><strong>Silent</strong></div>
+                    <div><span>Solar</span><strong>Yes</strong></div>
+                    <div><span>Setup</span><strong>Plug & Play</strong></div>
+                </div>
+                <p class="miner-note">Plug it in and forget it. Pennies per month — or zero with a solar panel.</p>
+            </div>
+            <div class="miner-card miner-card--featured" data-anim="fade-up" data-delay="1" data-hover>
+                <div class="miner-img-wrap">
+                    <img src="miner-vrx.webp" alt="VRX Miner Pro" draggable="false">
+                </div>
+                <div class="miner-badge">Semi-Pro</div>
+                <h3>VRX Miner Pro</h3>
+                <p class="miner-tagline">Maximum output, minimal footprint</p>
+                <div class="miner-specs">
+                    <div><span>Power</span><strong>67W</strong></div>
+                    <div><span>Noise</span><strong>Low</strong></div>
+                    <div><span>Solar</span><strong>Yes</strong></div>
+                    <div><span>Setup</span><strong>Plug & Play</strong></div>
+                </div>
+                <p class="miner-note">Stack a few with solar and you have a mini mining farm on pure sunlight. Zero cost, pure profit.</p>
+            </div>
+        </div>
+        <div class="solar-callout" data-anim="fade-up">
+            <div class="solar-icon">&#9728;</div>
+            <div>
+                <h3>The Solar Mining Revolution</h3>
+                <p>A single $100 solar panel produces enough energy to power a VRX miner 24/7 with energy to spare. A one-time purchase — and you mine crypto for free, forever.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+    <div class="container">
+        <span class="section-tag">Roadmap</span>
+        <h2 class="section-title">Where This Is Going</h2>
+        <p class="section-sub">Building methodically — no shortcuts, no empty promises. Every phase unlocks real value.</p>
+    </div>
+    <div class="roadmap-track-wrap">
+        <div class="roadmap-track" id="roadmapTrack">
+            <div class="roadmap-phase roadmap-phase--active" data-anim="fade-up">
+                <div class="phase-status">In Progress</div>
+                <h3>Phase 1 — Foundation</h3>
+                <p>Building the Foundation</p>
+                <ul>
+                    <li>Core blockchain architecture in Rust</li>
+                    <li>New consensus mechanism (CIP)</li>
+                    <li>Double-helix ledger design</li>
+                    <li>Mining hardware in production</li>
+                    <li>Early community forming</li>
+                </ul>
+            </div>
+            <div class="roadmap-phase" data-anim="fade-up" data-delay="1">
+                <div class="phase-status">Upcoming</div>
+                <h3>Phase 2 — Infrastructure</h3>
+                <p>The Network Goes Live</p>
+                <ul>
+                    <li>Testnet launch</li>
+                    <li>Mining software release</li>
+                    <li>Wallet beta</li>
+                    <li>Independent security audits</li>
+                    <li>Validator onboarding</li>
+                </ul>
+            </div>
+            <div class="roadmap-phase" data-anim="fade-up" data-delay="2">
+                <div class="phase-status">Planned</div>
+                <h3>Phase 3 — Expansion</h3>
+                <p>The Floodgates Open</p>
+                <ul>
+                    <li>Mainnet launch</li>
+                    <li>Marketplace opens</li>
+                    <li>Neural Nodes go live</li>
+                    <li>Academy launches</li>
+                    <li>Exchange listings</li>
+                </ul>
+            </div>
+            <div class="roadmap-phase" data-anim="fade-up" data-delay="3">
+                <div class="phase-status">Future</div>
+                <h3>Phase 4 — Maturity</h3>
+                <p>World Stage</p>
+                <ul>
+                    <li>Cross-chain bridges</li>
+                    <li>Enterprise partnerships</li>
+                    <li>Full DAO governance</li>
+                    <li>Smart contracts</li>
+                    <li>Global expansion</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="governance" id="governance">
+    <div class="container">
+        <span class="section-tag">Governance</span>
+        <h2 class="section-title">Crypto The Way<br>It Should Be</h2>
+        <p class="section-sub">Remember why people got excited about crypto? Freedom from centralized control. Transparency. Fairness. Most projects lost that vision. Valorium X brings it back.</p>
+        <div class="gov-blocks">
+            <div class="gov-block" data-anim="fade-up">
+                <h3>One Person, One Vote</h3>
+                <p>A billionaire and a student have the exact same voting power. Period. No amount of money can buy more influence. The most democratic blockchain ever designed.</p>
+            </div>
+            <div class="gov-block gov-block--right" data-anim="fade-up" data-delay="1">
+                <h3>No Surprise Changes</h3>
+                <p>Every update goes through public peer review first. No one — not even the founders — can sneak in changes. Total transparency.</p>
+            </div>
+            <div class="gov-block" data-anim="fade-up" data-delay="2">
+                <h3>Real Company, Real Accountability</h3>
+                <p>Valorium X Technologies Inc. is a registered Canadian company with a real address, real people, and real legal accountability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEVELOPERS -->
+<section class="developers" id="developers">
+    <div class="container">
+        <span class="section-tag">For Developers</span>
+        <h2 class="section-title">Under the Hood</h2>
+        <p class="section-sub">For researchers, auditors, and developers who want the technical details.</p>
+        <div class="dev-accordion">
+            <div class="dev-panel" data-hover>
+                <button class="dev-header" aria-expanded="false">
+                    <span>Architecture & Protocol Layers</span>
+                    <span class="dev-toggle">+</span>
+                </button>
+                <div class="dev-content">
+                    <ul>
+                        <li><strong>Double-Helix Ledger:</strong> Two intertwined chains (Transaction + Validation) with cryptographic interlocking via CIP</li>
+                        <li><strong>Quadrit Model:</strong> Novel data structure inspired by DNA quadruplex formations for efficient block encoding</li>
+                        <li><strong>Genetic HD Paths:</strong> Hierarchical deterministic key derivation inspired by biological inheritance patterns</li>
+                        <li><strong>Entangled Parcel Model (UTXO-DNA):</strong> Transaction structure combining UTXO efficiency with lineage tracking</li>
+                        <li><strong>G-Quadruplex Buffer:</strong> Cryptographic buffering layer for enhanced security during consensus</li>
+                    </ul>
+                    <a href="https://github.com/ValoriumX/ValoriumX/wiki/Architecture-%26-Protocol-Layers" class="dev-link" target="_blank">Full documentation on GitHub Wiki &rarr;</a>
+                </div>
+            </div>
+            <div class="dev-panel" data-hover>
+                <button class="dev-header" aria-expanded="false">
+                    <span>Consensus: CIP + VIC</span>
+                    <span class="dev-toggle">+</span>
+                </button>
+                <div class="dev-content">
+                    <ul>
+                        <li><strong>CIP (Cryptographic Interlocking Proof):</strong> Novel consensus where validation and transaction chains cross-verify</li>
+                        <li><strong>VIC (Valorium-Incentivized Consensus):</strong> Incentivizes useful computation rather than proof-of-wasted-energy</li>
+                        <li><strong>Proof of Useful Work:</strong> Mining contributes real processing value to the network</li>
+                        <li><strong>Spiking-Cortex Nodes:</strong> AI-assisted node architecture for intelligent network orchestration</li>
+                    </ul>
+                    <a href="https://github.com/ValoriumX/ValoriumX/wiki" class="dev-link" target="_blank">Consensus documentation &rarr;</a>
+                </div>
+            </div>
+            <div class="dev-panel" data-hover>
+                <button class="dev-header" aria-expanded="false">
+                    <span>Post-Quantum Cryptography</span>
+                    <span class="dev-toggle">+</span>
+                </button>
+                <div class="dev-content">
+                    <ul>
+                        <li>Designed from the ground up to resist quantum computing attacks</li>
+                        <li>Uses lattice-based and hash-based cryptographic primitives</li>
+                        <li>No dependency on RSA or elliptic curve cryptography for core security</li>
+                        <li>Future-proof key management through genetic HD paths</li>
+                    </ul>
+                    <a href="https://github.com/ValoriumX/ValoriumX/wiki" class="dev-link" target="_blank">Security documentation &rarr;</a>
+                </div>
+            </div>
+            <div class="dev-panel" data-hover>
+                <button class="dev-header" aria-expanded="false">
+                    <span>Built with Rust</span>
+                    <span class="dev-toggle">+</span>
+                </button>
+                <div class="dev-content">
+                    <ul>
+                        <li>Core blockchain written in Rust for memory safety and performance</li>
+                        <li>Zero-cost abstractions for high-throughput transaction processing</li>
+                        <li>Same language powering Solana, Polkadot, and other serious L1 chains</li>
+                        <li>Prevents entire classes of bugs (buffer overflows, null pointers, data races)</li>
+                    </ul>
+                    <a href="https://github.com/ValoriumX" class="dev-link" target="_blank">GitHub Repository &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY CTA -->
+<section class="community" id="community">
+    <canvas class="community-bg" id="communityBg"></canvas>
+    <div class="container community-inner">
+        <h2 class="community-title" data-anim="fade-up">The Early Ones<br>Win Big</h2>
+        <p class="community-sub" data-anim="fade-up" data-delay="1">Every major crypto had a moment when early believers got in before the rest of the world noticed. For Valorium X, that moment is right now.</p>
+        <a href="#" class="btn-primary btn-primary--large magnetic" data-hover data-anim="fade-up" data-delay="2">Get In Now</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">VALORIUM <span>X</span></div>
+                <p>A security-first, post-quantum Layer 1 blockchain built for the long term.</p>
+                <address>
+                    Valorium X Technologies Inc.<br>
+                    324 rue des Forges, local 201<br>
+                    Trois-Rivi&egrave;res (QC), G9A 2G8<br>
+                    Canada
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#about">About</a>
+                <a href="#how">How It Works</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#miners">Miners</a>
+                <a href="#roadmap">Roadmap</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://github.com/ValoriumX/ValoriumX/wiki" target="_blank">Developer Docs</a>
+                <a href="https://github.com/ValoriumX/ValoriumX/wiki" target="_blank">GitHub Wiki</a>
+                <a href="#">Whitepaper</a>
+                <a href="#">Academy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:info@valoriumx.org">info@valoriumx.org</a>
+                <a href="mailto:security@valoriumx.org">security@valoriumx.org</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Valorium X Technologies Inc. All rights reserved.</p>
+            <p class="footer-disclaimer">This website is for informational purposes only. VRX is not a financial instrument and should not be considered an investment. Always do your own research.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop preload="none"><source src="bg-music.mp3" type="audio/mpeg"></audio>
+<button class="audio-toggle" id="audioToggle" aria-label="Toggle music" data-hover>
+    <svg class="audio-icon audio-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+    <svg class="audio-icon audio-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+</button>
+
+<script>
+// ============================================================
+// VALORIUM X V2 — JavaScript
+// ============================================================
+
+(function() {
+'use strict';
+
+// --- CUSTOM CURSOR ---
+var cursor = document.getElementById('cursor');
+var ring = document.getElementById('cursorRing');
+var cx = 0, cy = 0, rx = 0, ry = 0;
+var isHover = false;
+
+if (window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', function(e) {
+        cx = e.clientX; cy = e.clientY;
+        cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+    }, { passive: true });
+
+    function ringLoop() {
+        rx += (cx - rx) * 0.15;
+        ry += (cy - ry) * 0.15;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) scale(' + (isHover ? 2.5 : 1) + ')';
+        requestAnimationFrame(ringLoop);
+    }
+    ringLoop();
+
+    document.querySelectorAll('[data-hover]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { isHover = true; });
+        el.addEventListener('mouseleave', function() { isHover = false; });
+    });
+} else {
+    cursor.style.display = 'none';
+    ring.style.display = 'none';
+}
+
+// --- LOADER ---
+var loader = document.getElementById('loader');
+var loaderText = document.getElementById('loaderText');
+var loaderCanvas = document.getElementById('loaderGradient');
+var loaderWord = 'VALORIUM X';
+var li = 0;
+
+function typeLoader() {
+    if (li <= loaderWord.length) {
+        loaderText.textContent = loaderWord.substring(0, li);
+        li++;
+        setTimeout(typeLoader, 80 + Math.random() * 60);
+    }
+}
+typeLoader();
+
+// Loader mesh gradient
+(function() {
+    var ctx = loaderCanvas.getContext('2d');
+    var w, h, t = 0, running = true;
+    function resize() {
+        w = loaderCanvas.width = window.innerWidth;
+        h = loaderCanvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    function draw() {
+        if (!running) return;
+        requestAnimationFrame(draw);
+        t += 0.003;
+        ctx.clearRect(0, 0, w, h);
+        var g1 = ctx.createRadialGradient(
+            w * 0.3 + Math.sin(t) * w * 0.1, h * 0.4 + Math.cos(t * 0.7) * h * 0.1, 0,
+            w * 0.3, h * 0.4, w * 0.5
+        );
+        g1.addColorStop(0, 'rgba(167,139,250,0.12)');
+        g1.addColorStop(1, 'transparent');
+        ctx.fillStyle = g1;
+        ctx.fillRect(0, 0, w, h);
+        var g2 = ctx.createRadialGradient(
+            w * 0.7 + Math.cos(t * 1.2) * w * 0.1, h * 0.6 + Math.sin(t * 0.9) * h * 0.1, 0,
+            w * 0.7, h * 0.6, w * 0.4
+        );
+        g2.addColorStop(0, 'rgba(52,211,153,0.08)');
+        g2.addColorStop(1, 'transparent');
+        ctx.fillStyle = g2;
+        ctx.fillRect(0, 0, w, h);
+    }
+    draw();
+
+    loader.addEventListener('click', function() {
+        loader.classList.add('loader--exit');
+        running = false;
+        document.body.classList.add('loaded');
+        // Start music
+        var audio = document.getElementById('bgMusic');
+        audio.volume = 0.15;
+        audio.play().catch(function(){});
+        setTimeout(function() { loader.style.display = 'none'; }, 900);
+    });
+})();
+
+// --- AUDIO TOGGLE ---
+(function() {
+    var btn = document.getElementById('audioToggle');
+    var audio = document.getElementById('bgMusic');
+    var playing = true;
+    btn.addEventListener('click', function() {
+        if (playing) { audio.pause(); btn.classList.add('audio--muted'); }
+        else { audio.play().catch(function(){}); btn.classList.remove('audio--muted'); }
+        playing = !playing;
+    });
+})();
+
+// --- NAVIGATION ---
+(function() {
+    var nav = document.getElementById('nav');
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    var lastY = 0;
+
+    toggle.addEventListener('click', function() {
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+    });
+
+    // Close on link click
+    links.querySelectorAll('.nav-link').forEach(function(a) {
+        a.addEventListener('click', function() {
+            toggle.classList.remove('open');
+            links.classList.remove('open');
+        });
+    });
+
+    // Nav hide/show on scroll
+    window.addEventListener('scroll', function() {
+        var y = window.scrollY;
+        if (y > 100) nav.classList.add('nav--solid');
+        else nav.classList.remove('nav--solid');
+        if (y > lastY && y > 300) nav.classList.add('nav--hidden');
+        else nav.classList.remove('nav--hidden');
+        lastY = y;
+    }, { passive: true });
+})();
+
+// --- WEBGL HERO ORB ---
+(function() {
+    var canvas = document.getElementById('heroOrb');
+    var gl = canvas.getContext('webgl');
+    if (!gl) { canvas.style.background = 'radial-gradient(circle, rgba(167,139,250,0.15), transparent)'; return; }
+
+    var w, h;
+    function resize() {
+        var r = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = r.width;
+        h = canvas.height = r.height;
+        gl.viewport(0, 0, w, h);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var vsrc = 'attribute vec2 p;void main(){gl_Position=vec4(p,0,1);}';
+    var fsrc = [
+        'precision mediump float;',
+        'uniform float t;',
+        'uniform vec2 r;',
+        'void main(){',
+        '  vec2 u=(gl_FragCoord.xy-r*0.5)/min(r.x,r.y);',
+        '  float d=length(u);',
+        '  vec3 c=vec3(0.031,0.031,0.047);',
+        '  for(float i=0.;i<10.;i++){',
+        '    float a=i/1.2+t*0.4;',
+        '    vec2 q=vec2(cos(a),sin(a))*0.3;',
+        '    q.x+=sin(u.y*15.+t*1.8+i)*0.02*smoothstep(0.5,0.0,d);',
+        '    float e=length(u-q);',
+        '    c+=vec3(0.30,0.20,0.55)*(0.004/e);',
+        '    c+=vec3(0.10,0.50,0.35)*(0.002/(e+0.1));',
+        '  }',
+        '  c*=smoothstep(0.7,0.15,d);',
+        '  c+=vec3(0.40,0.30,0.65)*0.2*exp(-d*3.0);',
+        '  gl_FragColor=vec4(c,1);',
+        '}'
+    ].join('\n');
+
+    function makeShader(src, type) {
+        var s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+    }
+    var prog = gl.createProgram();
+    gl.attachShader(prog, makeShader(vsrc, gl.VERTEX_SHADER));
+    gl.attachShader(prog, makeShader(fsrc, gl.FRAGMENT_SHADER));
+    gl.linkProgram(prog);
+    gl.useProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+    var p = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(p);
+    gl.vertexAttribPointer(p, 2, gl.FLOAT, false, 0, 0);
+    var uT = gl.getUniformLocation(prog, 't');
+    var uR = gl.getUniformLocation(prog, 'r');
+
+    var orbRunning = true, orbLast = 0;
+    document.addEventListener('visibilitychange', function() {
+        orbRunning = !document.hidden;
+        if (orbRunning) requestAnimationFrame(drawOrb);
+    });
+
+    function drawOrb(now) {
+        if (!orbRunning) return;
+        requestAnimationFrame(drawOrb);
+        if (now - orbLast < 33) return;
+        orbLast = now;
+        gl.uniform1f(uT, now * 0.001);
+        gl.uniform2f(uR, w, h);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+    requestAnimationFrame(drawOrb);
+})();
+
+// --- SCROLL ANIMATIONS ---
+(function() {
+    var els = document.querySelectorAll('[data-anim]');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                var delay = parseInt(e.target.getAttribute('data-delay') || '0', 10);
+                setTimeout(function() { e.target.classList.add('anim-visible'); }, delay * 120);
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    els.forEach(function(el) { observer.observe(el); });
+})();
+
+// --- MANIFESTO WORD-BY-WORD REVEAL ---
+(function() {
+    var el = document.getElementById('manifestoText');
+    if (!el) return;
+    var words = el.textContent.split(' ');
+    el.innerHTML = words.map(function(w) { return '<span class="m-word">' + w + '</span>'; }).join(' ');
+    var spans = el.querySelectorAll('.m-word');
+    var section = el.closest('.manifesto');
+
+    function update() {
+        var rect = section.getBoundingClientRect();
+        var progress = Math.max(0, Math.min(1, -rect.top / (rect.height - window.innerHeight)));
+        spans.forEach(function(s, i) {
+            var p = i / spans.length;
+            s.style.opacity = progress > p ? '1' : '0.12';
+            s.style.transform = progress > p ? 'translateY(0)' : 'translateY(6px)';
+        });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
+
+// --- HORIZONTAL SCROLL: PROBLEMS ---
+(function() {
+    var section = document.querySelector('.problems');
+    var track = document.getElementById('problemsTrack');
+    var bar = document.getElementById('problemsBar');
+    if (!section || !track) return;
+
+    function update() {
+        var rect = section.getBoundingClientRect();
+        var scrollRange = section.offsetHeight - window.innerHeight;
+        var progress = Math.max(0, Math.min(1, -rect.top / scrollRange));
+        var maxShift = track.scrollWidth - track.parentElement.clientWidth;
+        track.style.transform = 'translateX(' + (-progress * maxShift) + 'px)';
+        if (bar) bar.style.width = (progress * 100) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
+
+// --- DNA HELIX SVG ---
+(function() {
+    var svg = document.getElementById('dnaHelix');
+    if (!svg) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    var steps = 30;
+    for (var i = 0; i < steps; i++) {
+        var y = (i / steps) * 600;
+        var x1 = 60 + Math.sin(i * 0.5) * 40;
+        var x2 = 60 - Math.sin(i * 0.5) * 40;
+        // Connecting rung
+        var line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', x1); line.setAttribute('y1', y);
+        line.setAttribute('x2', x2); line.setAttribute('y2', y);
+        line.setAttribute('stroke', 'rgba(167,139,250,0.15)');
+        line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+        // Dot 1
+        var c1 = document.createElementNS(ns, 'circle');
+        c1.setAttribute('cx', x1); c1.setAttribute('cy', y); c1.setAttribute('r', '3');
+        c1.setAttribute('fill', 'url(#helixGrad1)');
+        svg.appendChild(c1);
+        // Dot 2
+        var c2 = document.createElementNS(ns, 'circle');
+        c2.setAttribute('cx', x2); c2.setAttribute('cy', y); c2.setAttribute('r', '3');
+        c2.setAttribute('fill', 'url(#helixGrad2)');
+        svg.appendChild(c2);
+    }
+})();
+
+// --- LATTICE SVG (Quantum section) ---
+(function() {
+    var el = document.getElementById('lattice');
+    if (!el) return;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 300 300');
+    svg.style.width = '100%'; svg.style.height = '100%';
+    var ns = 'http://www.w3.org/2000/svg';
+    var pts = [];
+    for (var row = 0; row < 8; row++) {
+        for (var col = 0; col < 8; col++) {
+            var x = 30 + col * 35 + (row % 2) * 17;
+            var y = 20 + row * 35;
+            pts.push({ x: x, y: y });
+            var c = document.createElementNS(ns, 'circle');
+            c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '2.5');
+            c.setAttribute('fill', '#a78bfa');
+            c.setAttribute('opacity', '0.6');
+            svg.appendChild(c);
+        }
+    }
+    // Connect adjacent points
+    pts.forEach(function(p, i) {
+        pts.forEach(function(q, j) {
+            if (j <= i) return;
+            var d = Math.hypot(p.x - q.x, p.y - q.y);
+            if (d < 45) {
+                var line = document.createElementNS(ns, 'line');
+                line.setAttribute('x1', p.x); line.setAttribute('y1', p.y);
+                line.setAttribute('x2', q.x); line.setAttribute('y2', q.y);
+                line.setAttribute('stroke', 'rgba(167,139,250,0.12)');
+                line.setAttribute('stroke-width', '0.8');
+                svg.appendChild(line);
+            }
+        });
+    });
+    el.appendChild(svg);
+})();
+
+// --- DEVELOPER ACCORDION ---
+(function() {
+    document.querySelectorAll('.dev-header').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var panel = btn.parentElement;
+            var isOpen = panel.classList.contains('dev-panel--open');
+            // Close all
+            document.querySelectorAll('.dev-panel').forEach(function(p) { p.classList.remove('dev-panel--open'); p.querySelector('.dev-header').setAttribute('aria-expanded', 'false'); });
+            if (!isOpen) {
+                panel.classList.add('dev-panel--open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+})();
+
+// --- MAGNETIC BUTTONS ---
+(function() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    document.querySelectorAll('.magnetic').forEach(function(el) {
+        el.addEventListener('mousemove', function(e) {
+            var r = el.getBoundingClientRect();
+            var dx = e.clientX - (r.left + r.width / 2);
+            var dy = e.clientY - (r.top + r.height / 2);
+            el.style.transform = 'translate(' + dx * 0.3 + 'px,' + dy * 0.3 + 'px)';
+        });
+        el.addEventListener('mouseleave', function() {
+            el.style.transform = '';
+        });
+    });
+})();
+
+// --- COMMUNITY MESH GRADIENT CANVAS ---
+(function() {
+    var canvas = document.getElementById('communityBg');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var w, h, t = 0, running = false;
+    function resize() {
+        var r = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = r.width;
+        h = canvas.height = r.height;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var observer = new IntersectionObserver(function(entries) {
+        running = entries[0].isIntersecting;
+        if (running) drawMesh();
+    }, { threshold: 0.1 });
+    observer.observe(canvas.parentElement);
+
+    function drawMesh() {
+        if (!running) return;
+        requestAnimationFrame(drawMesh);
+        t += 0.004;
+        ctx.clearRect(0, 0, w, h);
+        var g1 = ctx.createRadialGradient(
+            w * 0.2 + Math.sin(t) * w * 0.15, h * 0.3 + Math.cos(t * 0.6) * h * 0.15, 0,
+            w * 0.2, h * 0.3, w * 0.6
+        );
+        g1.addColorStop(0, 'rgba(167,139,250,0.18)');
+        g1.addColorStop(1, 'transparent');
+        ctx.fillStyle = g1;
+        ctx.fillRect(0, 0, w, h);
+        var g2 = ctx.createRadialGradient(
+            w * 0.8 + Math.cos(t * 0.8) * w * 0.12, h * 0.7 + Math.sin(t) * h * 0.12, 0,
+            w * 0.8, h * 0.7, w * 0.5
+        );
+        g2.addColorStop(0, 'rgba(52,211,153,0.12)');
+        g2.addColorStop(1, 'transparent');
+        ctx.fillStyle = g2;
+        ctx.fillRect(0, 0, w, h);
+        var g3 = ctx.createRadialGradient(
+            w * 0.5 + Math.sin(t * 1.3) * w * 0.1, h * 0.5, 0,
+            w * 0.5, h * 0.5, w * 0.3
+        );
+        g3.addColorStop(0, 'rgba(244,114,182,0.08)');
+        g3.addColorStop(1, 'transparent');
+        ctx.fillStyle = g3;
+        ctx.fillRect(0, 0, w, h);
+    }
+})();
+
+// --- SMOOTH SCROLL (Lenis) ---
+window.addEventListener('load', function() {
+    if (typeof Lenis === 'undefined') return;
+    var lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1.2, smoothWheel: true });
+    var active = true;
+    document.addEventListener('visibilitychange', function() {
+        active = !document.hidden;
+        if (active) requestAnimationFrame(raf);
+    });
+    function raf(time) {
+        if (!active) return;
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+});
+
+})();
+</script>
+
+</body>
+</html>
