@@ -54,7 +54,7 @@
 
 <!-- HERO -->
 <header class="hero" id="hero">
-    <img src="hero-x-logo.png" alt="" class="hero-x-bg" draggable="false">
+    <img src="hero-x-logo.webp" alt="" class="hero-x-bg" draggable="false">
     <div class="hero-globe-bg">
         <div class="wrapper"></div>
     </div>
@@ -79,10 +79,66 @@
 </header>
 <script src="globe-bundle.js"></script>
 <script>
-// Disable globe zoom on scroll so page scrolls normally
+// Disable globe zoom/pan on scroll
 document.querySelector('.hero-globe-bg').addEventListener('wheel', function(e) {
     e.stopPropagation();
 }, true);
+
+// Pause globe rendering when hero is offscreen
+(function() {
+    var heroEl = document.querySelector('.hero');
+    var canvas = document.querySelector('.hero-globe-bg canvas');
+    if (canvas) {
+        var obs = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                canvas.style.visibility = 'visible';
+            } else {
+                canvas.style.visibility = 'hidden';
+            }
+        }, { threshold: 0 });
+        obs.observe(heroEl);
+    }
+})();
+
+// Parallax: X logo with rAF throttle for smooth performance
+(function() {
+    var logo = document.querySelector('.hero-x-bg');
+    var hero = document.querySelector('.hero');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                var scrollY = window.pageYOffset;
+                if (scrollY < hero.offsetHeight) {
+                    logo.style.transform = 'translate(-50%, -50%) translateY(' + (scrollY * 0.85) + 'px)';
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+
+// Undulating light reflection on logo synced to wave motion
+(function() {
+    var logo = document.querySelector('.hero-x-bg');
+    if (!logo) return;
+    var start = performance.now();
+    function undulate(now) {
+        var t = (now - start) / 1000;
+        // Multiple sine waves at different frequencies for organic undulation
+        var wave1 = Math.sin(t * 0.88) * 0.08;
+        var wave2 = Math.sin(t * 1.47 + 1.2) * 0.05;
+        var wave3 = Math.sin(t * 2.1 + 0.5) * 0.03;
+        var combined = 0.35 + wave1 + wave2 + wave3;
+        // Brightness also undulates
+        var bright = 1 + Math.sin(t * 0.88 + 0.8) * 0.25 + Math.sin(t * 1.47 + 2.0) * 0.15;
+        logo.style.opacity = combined;
+        logo.style.filter = 'brightness(' + bright.toFixed(2) + ')';
+        requestAnimationFrame(undulate);
+    }
+    requestAnimationFrame(undulate);
+})();
 </script>
 
 <!-- MANIFESTO -->
@@ -170,12 +226,12 @@ document.querySelector('.hero-globe-bg').addEventListener('wheel', function(e) {
                 <svg class="dna-helix" viewBox="0 0 120 600" id="dnaHelix">
                     <defs>
                         <linearGradient id="helixGrad1" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#a78bfa"/>
-                            <stop offset="100%" stop-color="#34d399"/>
+                            <stop offset="0%" stop-color="#4da8ff"/>
+                            <stop offset="100%" stop-color="#d4a844"/>
                         </linearGradient>
                         <linearGradient id="helixGrad2" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#34d399"/>
-                            <stop offset="100%" stop-color="#a78bfa"/>
+                            <stop offset="0%" stop-color="#d4a844"/>
+                            <stop offset="100%" stop-color="#4da8ff"/>
                         </linearGradient>
                     </defs>
                 </svg>
@@ -741,13 +797,20 @@ typeLoader();
     });
 
     // Nav hide/show on scroll
+    var navTicking = false;
     window.addEventListener('scroll', function() {
-        var y = window.scrollY;
-        if (y > 100) nav.classList.add('nav--solid');
-        else nav.classList.remove('nav--solid');
-        if (y > lastY && y > 300) nav.classList.add('nav--hidden');
-        else nav.classList.remove('nav--hidden');
-        lastY = y;
+        if (!navTicking) {
+            requestAnimationFrame(function() {
+                var y = window.scrollY;
+                if (y > 100) nav.classList.add('nav--solid');
+                else nav.classList.remove('nav--solid');
+                if (y > lastY && y > 300) nav.classList.add('nav--hidden');
+                else nav.classList.remove('nav--hidden');
+                lastY = y;
+                navTicking = false;
+            });
+            navTicking = true;
+        }
     }, { passive: true });
 })();
 
@@ -855,7 +918,7 @@ typeLoader();
             pts.push({ x: x, y: y });
             var c = document.createElementNS(ns, 'circle');
             c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '2.5');
-            c.setAttribute('fill', '#a78bfa');
+            c.setAttribute('fill', '#4da8ff');
             c.setAttribute('opacity', '0.6');
             svg.appendChild(c);
         }
@@ -965,7 +1028,7 @@ typeLoader();
 // --- SMOOTH SCROLL (Lenis) ---
 window.addEventListener('load', function() {
     if (typeof Lenis === 'undefined') return;
-    var lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1.2, smoothWheel: true });
+    var lenis = new Lenis({ lerp: 0.15, wheelMultiplier: 1, smoothWheel: true });
     var active = true;
     document.addEventListener('visibilitychange', function() {
         active = !document.hidden;

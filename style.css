@@ -7,12 +7,12 @@
     --bg: #08080c;
     --bg-surface: #111118;
     --bg-elevated: #18181f;
-    --violet: #a78bfa;
-    --violet-dim: rgba(167, 139, 250, 0.15);
-    --emerald: #34d399;
-    --emerald-dim: rgba(52, 211, 153, 0.12);
-    --rose: #f472b6;
-    --rose-dim: rgba(244, 114, 182, 0.1);
+    --violet: #4da8ff;
+    --violet-dim: rgba(77, 168, 255, 0.15);
+    --emerald: #d4a844;
+    --emerald-dim: rgba(212, 168, 68, 0.12);
+    --rose: #5ce0d6;
+    --rose-dim: rgba(92, 224, 214, 0.1);
     --text: #f0f0f5;
     --text-muted: #6b7280;
     --text-dim: #3a3a4a;
@@ -279,23 +279,36 @@ body.loaded .audio-toggle {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 120px 0 60px;
-    background: #000;
+    padding: 120px 0 800px;
+    background: var(--bg);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    z-index: 3;
+    pointer-events: none;
 }
 
 /* X logo centered behind globe */
 .hero-x-bg {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: clamp(500px, 80vw, 1100px);
     height: auto;
-    z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 0.35;
     user-select: none;
-    filter: drop-shadow(0 0 40px rgba(0, 160, 255, 0.35));
+    mix-blend-mode: screen;
+    will-change: transform;
+
 }
 
 /* Globe background layer */
@@ -305,8 +318,6 @@ body.loaded .audio-toggle {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    mix-blend-mode: screen;
 }
 
 .hero-globe-bg .wrapper {
@@ -318,6 +329,7 @@ body.loaded .audio-toggle {
     display: block;
     width: 100% !important;
     height: 100% !important;
+    mix-blend-mode: screen;
 }
 
 /* Text overlay on top of globe */
@@ -325,12 +337,13 @@ body.loaded .audio-toggle {
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 clamp(24px, 5vw, 80px);
+    padding-top: 65vh;
 }
 
 .hero-text { position: relative; z-index: 2; }
