@@ -54,7 +54,10 @@
 
 <!-- HERO -->
 <header class="hero" id="hero">
-    <div class="hero-content">
+    <div class="hero-globe-bg">
+        <div class="wrapper"></div>
+    </div>
+    <div class="hero-overlay">
         <div class="hero-text">
             <p class="hero-eyebrow" data-anim="fade-up" data-delay="0">Introducing</p>
             <h1 class="hero-title">
@@ -67,16 +70,13 @@
                 <a href="#developers" class="btn-ghost magnetic" data-hover>Read the Docs</a>
             </div>
         </div>
-        <div class="hero-visual">
-            <canvas id="heroOrb" class="hero-orb"></canvas>
-            <img src="valorium-logo.webp" alt="Valorium X" class="hero-logo" draggable="false">
-        </div>
     </div>
     <div class="scroll-indicator" data-anim="fade-up" data-delay="5">
         <span class="scroll-text">scroll</span>
         <div class="scroll-line"></div>
     </div>
 </header>
+<script src="globe-bundle.js"></script>
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="about">
@@ -744,83 +744,7 @@ typeLoader();
     }, { passive: true });
 })();
 
-// --- WEBGL HERO ORB ---
-(function() {
-    var canvas = document.getElementById('heroOrb');
-    var gl = canvas.getContext('webgl');
-    if (!gl) { canvas.style.background = 'radial-gradient(circle, rgba(167,139,250,0.15), transparent)'; return; }
 
-    var w, h;
-    function resize() {
-        var r = canvas.parentElement.getBoundingClientRect();
-        w = canvas.width = r.width;
-        h = canvas.height = r.height;
-        gl.viewport(0, 0, w, h);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    var vsrc = 'attribute vec2 p;void main(){gl_Position=vec4(p,0,1);}';
-    var fsrc = [
-        'precision mediump float;',
-        'uniform float t;',
-        'uniform vec2 r;',
-        'void main(){',
-        '  vec2 u=(gl_FragCoord.xy-r*0.5)/min(r.x,r.y);',
-        '  float d=length(u);',
-        '  vec3 c=vec3(0.031,0.031,0.047);',
-        '  for(float i=0.;i<10.;i++){',
-        '    float a=i/1.2+t*0.4;',
-        '    vec2 q=vec2(cos(a),sin(a))*0.3;',
-        '    q.x+=sin(u.y*15.+t*1.8+i)*0.02*smoothstep(0.5,0.0,d);',
-        '    float e=length(u-q);',
-        '    c+=vec3(0.30,0.20,0.55)*(0.004/e);',
-        '    c+=vec3(0.10,0.50,0.35)*(0.002/(e+0.1));',
-        '  }',
-        '  c*=smoothstep(0.7,0.15,d);',
-        '  c+=vec3(0.40,0.30,0.65)*0.2*exp(-d*3.0);',
-        '  gl_FragColor=vec4(c,1);',
-        '}'
-    ].join('\n');
-
-    function makeShader(src, type) {
-        var s = gl.createShader(type);
-        gl.shaderSource(s, src);
-        gl.compileShader(s);
-        return s;
-    }
-    var prog = gl.createProgram();
-    gl.attachShader(prog, makeShader(vsrc, gl.VERTEX_SHADER));
-    gl.attachShader(prog, makeShader(fsrc, gl.FRAGMENT_SHADER));
-    gl.linkProgram(prog);
-    gl.useProgram(prog);
-
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
-    var p = gl.getAttribLocation(prog, 'p');
-    gl.enableVertexAttribArray(p);
-    gl.vertexAttribPointer(p, 2, gl.FLOAT, false, 0, 0);
-    var uT = gl.getUniformLocation(prog, 't');
-    var uR = gl.getUniformLocation(prog, 'r');
-
-    var orbRunning = true, orbLast = 0;
-    document.addEventListener('visibilitychange', function() {
-        orbRunning = !document.hidden;
-        if (orbRunning) requestAnimationFrame(drawOrb);
-    });
-
-    function drawOrb(now) {
-        if (!orbRunning) return;
-        requestAnimationFrame(drawOrb);
-        if (now - orbLast < 33) return;
-        orbLast = now;
-        gl.uniform1f(uT, now * 0.001);
-        gl.uniform2f(uR, w, h);
-        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    }
-    requestAnimationFrame(drawOrb);
-})();
 
 // --- SCROLL ANIMATIONS ---
 (function() {
