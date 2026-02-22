@@ -77,6 +77,12 @@
     </div>
 </header>
 <script src="globe-bundle.js"></script>
+<script>
+// Disable globe zoom on scroll so page scrolls normally
+document.querySelector('.hero-globe-bg').addEventListener('wheel', function(e) {
+    e.stopPropagation();
+}, true);
+</script>
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="about">
