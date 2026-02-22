@@ -282,6 +282,20 @@ body.loaded .audio-toggle {
     padding: 120px 0 60px;
 }
 
+/* X logo centered behind globe */
+.hero-x-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 50vw, 700px);
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+    user-select: none;
+}
+
 /* Globe background layer */
 .hero-globe-bg {
     position: absolute;
@@ -289,7 +303,7 @@ body.loaded .audio-toggle {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
 }
 
 .hero-globe-bg .wrapper {
